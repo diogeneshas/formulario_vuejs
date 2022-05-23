@@ -33,13 +33,13 @@
                         <label class="col-3 col-form-label">Gênero:</label>
                         <div class="col">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="Feminino" type="radio" v-model="form.genero">
                                 <label class="form-check-label">
                                     Feminino
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="Masculino" type="radio" v-model="form.genero">
                                 <label class="form-check-label">
                                     Masculino
                                 </label>
@@ -182,7 +182,7 @@
                     <spam>Idade:{{this.form.idade}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Gênero:</spam>
+                    <spam>Gênero: {{form.genero}}</spam>
                 </div>
                 <div class="mb-3 row">
                     <spam>Licença:{{this.form.licenca}}</spam>

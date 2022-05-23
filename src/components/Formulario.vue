@@ -89,7 +89,7 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Telefone:</label>
                         <div class="col">
-                            <input type="tel" class="form-control" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}">
+                            <input type="text" class="form-control" v-maska="'(##) #####-####'" v-model="form.telefone">
                             <small class="text-muted">Formato: 11 97777-5555</small>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                     </ul>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Telefone:</spam>
+                    <spam>Telefone: {{form.telefone}}</spam>
                 </div>
                 <div class="mb-3 row">
                     <spam>Data:</spam>
@@ -241,6 +241,7 @@ export default {
         senha: '',
         licenca: 'SIM',
         interesses: [],
+        telefone: ''
       }
     }
   }

@@ -51,7 +51,7 @@
                         <label class="col-3 col-form-label">Licença:</label>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" v-model="form.licenca" true-value="SIM" false-value="NÃO">
                                 <label class="form-check-label">Li e aceito os termos</label>
                             </div>
                         </div>
@@ -61,25 +61,25 @@
                         <label class="col-3 col-form-label">Interesses:</label>
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="JavaScript" type="checkbox" v-model="form.interesses">
                                 <label class="form-check-label">
-                                    JavaScriot
+                                    JavaScript
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="VueJS" type="checkbox" v-model="form.interesses">
                                 <label class="form-check-label">
                                     VueJS
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="Angular" type="checkbox" v-model="form.interesses">
                                 <label class="form-check-label">
                                     Angular
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="NodeJS" type="checkbox" v-model="form.interesses">
                                 <label class="form-check-label">
                                     NodeJS
                                 </label>
@@ -185,10 +185,13 @@
                     <spam>Gênero:</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Licença:</spam>
+                    <spam>Licença:{{this.form.licenca}}</spam>
                 </div>
                 <div class="mb-3 row">
                     <spam>Interesses:</spam>
+                    <ul>
+                      <li v-for="(interesse, index) in form.interesses" :key="index">{{ interesse }}</li>
+                    </ul>
                 </div>
                 <div class="mb-3 row">
                     <spam>Telefone:</spam>
@@ -236,6 +239,8 @@ export default {
         nome: '',
         email: '',
         senha: '',
+        licenca: 'SIM',
+        interesses: [],
       }
     }
   }

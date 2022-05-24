@@ -144,7 +144,7 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Upload:</label>
                         <div class="col">
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" multiple @change="selecionarArquivos($event)">
                         </div>
                     </div>
                     <hr>
@@ -218,10 +218,13 @@
                     <spam>Valor limite: {{form.alcance}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Escondido:</spam>
+                    <spam>Escondido: {{form.escondido}}</spam>
                 </div>
                 <div class="mb-3 row">
                     <spam>Upload:</spam>
+                    <ul>
+                      <li v-for="(arquivo, index) in form.arquivos" :key="index">{{arquivo.name}}</li>
+                    </ul>
                 </div>  
             </div>
         </div>
@@ -250,10 +253,18 @@ export default {
         semana: '',
         cor: '',
         alcance: 5,
+        escondido: 'Esse input esta escondido',
+        arquivos: {},
       }
     }
   },
   created() {
+  },
+  methods: {
+    selecionarArquivos(event) {
+      console.log(event.target.files)
+      this.form.arquivos = event.target.files
+    }
   }
 }
 </script>

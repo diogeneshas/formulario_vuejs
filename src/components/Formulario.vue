@@ -96,31 +96,31 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Data:</label>
                         <div class="col">
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" v-model="form.data">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Data/hora local:</label>
                         <div class="col">
-                            <input type="datetime-local" class="form-control">
+                            <input type="datetime-local" class="form-control" v-model="form.dataHoraLocal">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Mês:</label>
                         <div class="col">
-                            <input type="month" class="form-control">
+                            <input type="month" class="form-control" v-model="form.mes">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Semana:</label>
                         <div class="col">
-                            <input type="week" class="form-control">
+                            <input type="week" class="form-control" v-model="form.semana">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Hora:</label>
                         <div class="col">
-                            <input type="time" class="form-control">
+                            <input type="time" class="form-control" v-model="form.hora">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -197,19 +197,19 @@
                     <spam>Telefone: {{form.telefone}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Data:</spam>
+                    <spam>Data: {{ $moment(form.data).format('DD/MM/YYYY') }}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Data/hora local:</spam>
+                    <spam>Data/hora local: {{form.dataHoraLocal}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Mês:</spam>
+                    <spam>Mês: {{form.mes}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Semana:</spam>
+                    <spam>Semana: {{form.semana}}</spam>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Hora:</spam>
+                    <spam>Hora: {{form.hora}}</spam>
                 </div>
                 <div class="mb-3 row">
                     <spam>Cor:</spam>
@@ -231,19 +231,27 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'Formulario',
   data() {
-    return {
+    return {  
       form: {
         nome: '',
         email: '',
         senha: '',
         licenca: 'SIM',
         interesses: [],
-        telefone: ''
+        telefone: '',
+        data: '',
+        dataHoraLocal: '',
+        mes: '',
+        semana: '',
       }
     }
+  },
+  created() {
   }
 }
 </script>
